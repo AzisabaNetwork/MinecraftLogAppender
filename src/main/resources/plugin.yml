@@ -1,0 +1,4 @@
+name: MinecraftLogAppender
+version: @version@
+main: net.azisaba.minecraftlogappender.MinecraftLogAppender
+api-version: 1.13 # we don't need access to legacy data

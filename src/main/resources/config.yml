@@ -1,0 +1,7 @@
+# These patterns can be used in this file
+# %{env:NAME}
+# %{env:NAME=DEFAULT}
+# %{property:NAME}
+# %{property:NAME=DEFAULT}
+file-pattern: "logs2/%d{yyyy-MM-dd}-%i.log.gz"
+file-name: "logs2/latest.log"
