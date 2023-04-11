@@ -10,22 +10,10 @@ import org.apache.logging.log4j.core.appender.rolling.TimeBasedTriggeringPolicy;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.apache.logging.log4j.core.config.LoggerConfig;
 import org.apache.logging.log4j.core.layout.PatternLayout;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Objects;
-
-@SuppressWarnings("unused")
-public class MinecraftLogAppender extends JavaPlugin {
-    @Override
-    public void onEnable() {
-        saveDefaultConfig();
-        String filePattern = Variable.replaceAll(getConfig().getString("file-pattern", "logs2/%d{yyyy-MM-dd}-%i.log.gz"));
-        String fileName = Variable.replaceAll(getConfig().getString("file-name", "logs2/latest.log"));
-        appendAppender(Objects.requireNonNull(createAppender(filePattern, fileName), "appender"));
-    }
-
+public class Log4jAppender {
     public static @Nullable Appender createAppender(@NotNull String filePattern, @NotNull String fileName) {
         PatternLayout layout =
                 PatternLayout.newBuilder()
